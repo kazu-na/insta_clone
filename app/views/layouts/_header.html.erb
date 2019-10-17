@@ -1,0 +1,22 @@
+<header class="navbar navbar-fixed-top navbar-light">
+  <div class="container">
+    <%= link_to root_path, id: "logo" do %>
+      <i class="fab fa-instagram"></i> | Instagram
+    <% end %>
+    <div class="searchForm">
+      <form onsubmit="return goSearch()" class="searchArea">
+        <input type="search" class="searchText fas" placeholder="&#xf002; 検索">
+      </form>
+    </div>
+    <nav>
+      <ul class="nav navbar-nav navbar-light">
+        <%= link_to "#", id: "notice" do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+        <%= link_to current_user, id: "user" do %>
+          <i class="far fa-user"></i>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

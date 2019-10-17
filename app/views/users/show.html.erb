@@ -1,0 +1,52 @@
+<% provide(:title, @user.name) %>
+<div class="container">
+  <div class="profile">
+    <p><%= @user.username %></p>
+
+    <%= button_tag(type: "button", id: "edit", class: "mr-1 btn btn-light", data: {target: "#addApp", toggle: "modal"}) do %>
+      <i class="fas fa-cog"></i>
+    <% end %>
+    <div class="modal fade" id="addApp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <%= link_to "プロフィールを編集", edit_user_path(current_user), class: "list-group-item list-group-item-action" %>
+            <%= link_to "パスワードを変更", edit_pass_user_path(current_user), class: "list-group-item list-group-item-action" %>
+            <%= link_to "ログアウト", logout_path, method: :delete, class: "list-group-item list-group-item-action" %>
+            <button type="button" id:="id:" "cancel" ,="," class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="profile2">
+    <p>投稿</p>
+    <p>フォロワー</p>
+    <p>フォロー</p>
+  </div>
+  <div class="profile2">
+    <h3><%= @user.name %></h3>
+    <p><%= @user.introduce %></p>
+    <%= link_to  "#{@user.website}", target: :_blank, rel: :noopener do %>
+      <%= @user.website %>
+    <% end %>
+
+  </div>
+  <div class="row">
+    <aside class="col-md-3 col-md-offset-2">
+      <section class="user_info">
+        <%= link_to "画像", '#' %>
+      </section>
+    </aside>
+    <aside class="col-md-3">
+      <section class="user_info">
+        <%= link_to "画像", '#' %>
+      </section>
+    </aside>
+    <aside class="col-md-3">
+      <section class="user_info">
+        <%= link_to "画像", '#' %>
+      </section>
+    </aside>
+  </div>
+</div>
