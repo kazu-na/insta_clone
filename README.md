@@ -90,11 +90,10 @@ Facebook ログイン
 自分が苦労した点
 学んだ点
 自慢したい・相談したい点
-  ・`rails new` をした直後にmasterにコミット、その直後に作業用ブランチを作成し、
-    その後作業ブランチでherokuのセットアップを行ったためか
-    $git push heroku instagram_clone:master を行ってもうまくいかずそのままの状態になっています。
-    長時間嵌るのも勿体無いと判断し、プルリクエストが通り次第masterのほうで対処しようと考えています。
-    もしこの状況での解決策がありましたらアドバイスしていただけると幸いです。
-    この問題のせいなのかSSLを使う環境を設定していてもユーザー登録のメール認証URLを実行しても「このサイトは安全に接続できません」と
-    表示されてしまいうまくいっていない状態です。(テストはクリアしています)
-    また、同じ理由でSendGridも実装できていません。(ローカル Atom環境)
+  ・test/integration/users_profile_test.rb
+
+  validates :image, presence: true
+  ・MicropostTest
+    test "should be valid"
+  ・UserTest
+    test "associated microposts should be destroyed"

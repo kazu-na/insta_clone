@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="profile2">
-    <p>投稿</p>
+    <h3>投稿<%= @user.microposts.count %>件</h3>
     <p>フォロワー</p>
     <p>フォロー</p>
   </div>
@@ -30,23 +30,15 @@
     <%= link_to  "#{@user.website}", target: :_blank, rel: :noopener do %>
       <%= @user.website %>
     <% end %>
-
   </div>
   <div class="row">
     <aside class="col-md-3 col-md-offset-2">
-      <section class="user_info">
-        <%= link_to "画像", '#' %>
-      </section>
-    </aside>
-    <aside class="col-md-3">
-      <section class="user_info">
-        <%= link_to "画像", '#' %>
-      </section>
-    </aside>
-    <aside class="col-md-3">
-      <section class="user_info">
-        <%= link_to "画像", '#' %>
-      </section>
+      <% if @user.microposts.any? %>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
+        <%= will_paginate @microposts %>
+      <% end %>
     </aside>
   </div>
 </div>

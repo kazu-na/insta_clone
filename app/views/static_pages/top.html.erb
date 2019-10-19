@@ -1,21 +1,5 @@
-<div class="center jumbotron">
-  <h1>Instagram</h1>
-
-  <h2>インスタグラムのクローンサイトです</h2>
-
-  <%= link_to "ログイン", login_path, class: "btn btn-lg btn-primary" %>
-
-  <p>または</p>
-
-  <%= link_to "#", id: "facebook" do %>
-    <i class="fab fa-facebook fa-fw"></i> Facebookでログイン
-  <% end %>
-
-</div>
-
-<div class="center jumbotron">
-  <h2>
-    アカウントをお持ちでないですか？
-    <%= link_to "登録する", signup_path %>
-  </h2>
-</div>
+<% if logged_in? %>
+  <%= render 'static_pages/logged_in' %>
+<% else %>
+  <%= render 'static_pages/not_logged_in' %>
+<% end %>
