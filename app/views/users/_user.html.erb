@@ -1,5 +1,5 @@
 <li>
-  <%# gravatar_for user, size: 50 %>
+  <%= image_tag(user.image_name.url, size: "30x30") %>
   <%= link_to user.name, user %>
   <p><%= user.username %></p>
   <% if current_user.admin? && !current_user?(user) %>

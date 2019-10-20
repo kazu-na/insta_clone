@@ -8,7 +8,8 @@
 
       <div class="profile-edit">
         <h4><%= @user.username %></h4>
-        <%= link_to "プロフィール写真を変更", '#' %>
+          <%= image_tag @user.image_name.url, size: "50x50" %>
+        <%= f.file_field :image_name %>
       </div>
 
       <%= f.label :name, "名前" %>

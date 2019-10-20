@@ -70,7 +70,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :username, :email,
                                    :password, :password_confirmation,
                                    :sex, :introduce, :website,
-                                   :phone)
+                                   :phone, :image_name)
     end
 
     # beforeアクション

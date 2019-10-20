@@ -2,6 +2,7 @@ class Micropost < ApplicationRecord
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
   mount_uploader :image, ImageUploader
+  mount_uploader :image_name, ImageUploader
   validates :image, presence: true
   validate  :image_size
   validates :user_id, presence: true
