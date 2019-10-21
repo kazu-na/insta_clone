@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
   root 'static_pages#top'
-  get    '/signup',    to: 'users#new'
-  post   '/signup',    to: 'users#create'
-  get    '/login',     to: 'sessions#new'
-  post   '/login',     to: 'sessions#create'
-  delete '/logout',    to: 'sessions#destroy'
+  get    '/privacy',    to: 'static_pages#privacy'
+  get    '/signup',     to: 'users#new'
+  post   '/signup',     to: 'users#create'
+  get    '/login',      to: 'sessions#new'
+  post   '/login',      to: 'sessions#create'
+  delete '/logout',     to: 'sessions#destroy'
   resources :users do
     member do
       get :edit_pass, :following, :followers
