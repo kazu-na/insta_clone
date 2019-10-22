@@ -19,14 +19,28 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      @user.send_activation_email
-      flash[:info] = "メールを確認してアカウントを有効にしてください。"
-      redirect_to root_url
-    else
-      render 'new'
-    end
+    auth = request.env["omniauth.auth"]
+      if auth.present?
+        unless @auth = Authorization.find_from_auth(auth)
+          @auth = Authorization.create_from_auth(auth)
+        end
+      user = @auth.user
+      redirect_back_or user
+      else
+        @user = User.new(user_params)
+        if @user.save
+          @user.send_activation_email
+          flash[:info] = "メールを確認してアカウントを有効にしてください。"
+          redirect_to root_url
+        else
+          render 'new'
+        end
+      end
+  end
+
+  #認証に失敗した際の処理
+  def auth_failure 
+    render 'new'
   end
 
   def edit
