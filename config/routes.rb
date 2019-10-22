@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get    '/login',                      to: 'sessions#new'
   post   '/login',                      to: 'sessions#create'
   delete '/logout',                     to: 'sessions#destroy'
-  get    '/auth/:provider/callback',    to: 'users#create',          as: :auth_callback
+  get    '/auth/facebook/callback',     to: 'users#create',          as: :auth_callback
   get    '/auth/failure',               to: 'users#auth_failure',    as: :auth_failure
 
   resources :users do
