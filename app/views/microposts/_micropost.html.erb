@@ -16,6 +16,28 @@
   </li>
 <% else %>
   <span class="content">
-    <%= image_tag(micropost.image.url, size: "300x300") if micropost.image? %>
+    <% if micropost.image? %>
+      <%= image_tag(micropost.image.url, size: "300x300", data: {target: ".bd-example-modal-lg", toggle: "modal"}) %>
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <%= image_tag(micropost.image.url, size: "400x400") %>
+            <div class="modal-header">
+            <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
+            <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+            </div>
+            <div class="modal-body">
+              <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
+              <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+            <%= micropost.content %>
+            <%= "コメント表示" %>
+            </div>
+            <div class="modal-footer">
+              <%= "コメント入力" %>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </span>
 <% end %>

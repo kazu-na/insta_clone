@@ -90,10 +90,14 @@ Facebook ログイン
 自分が苦労した点
 学んだ点
 自慢したい・相談したい点
-  ・test/integration/users_profile_test.rb
+  ・test/integration/users_profile_test.rb の test "profile display" でエラーになってしまう。
 
-  validates :image, presence: true
-  ・MicropostTest
-    test "should be valid"
-  ・UserTest
-    test "associated microposts should be destroyed"
+  ・Post投稿を validates :image, presence: true にすると下記のエラーが出てしまう。
+    ・MicropostTest
+      test "should be valid"
+    ・UserTest
+      test "associated microposts should be destroyed"
+
+  ・Facebookのログイン認証で"We're sorry, but something went wrong."と表示されてしまう。
+
+  ・/views/users/show.html.erb 内のmodal

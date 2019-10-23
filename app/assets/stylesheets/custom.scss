@@ -31,6 +31,10 @@ textarea {
   }
 }
 
+.title {
+  text-align: center;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,6 +70,7 @@ header .container {
   align-items: center;
   height: 75px;
   border-bottom: 1px solid #eaeaea;
+  background-color: #fff;
 }
 
 #logo {
@@ -105,7 +110,7 @@ header .container {
   }
 }
 
-#notice, #user {
+#index, #notice, #user {
   margin-left: 40px;
   font-size: 2.5rem;
   color: #231F20;
@@ -116,10 +121,31 @@ header .container {
 
 /* main */
 
-.jumbotron h1 {
-  font-family:'Pacifico', cursive;
+.jumbotron {
+  padding: 25px 0;
+  margin-bottom: 15px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  h1 {
+    margin: 0;
+    padding-bottom: 30px;
+    font-family:'Pacifico', cursive;
+  }
+  h2 {
+    margin: 0;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+  .btn {
+    padding: 5px 50px;
+    margin: 25px 0;
+  }
 }
-
+#facebook {
+  margin: 50px 0;
+  padding: 20px 0;
+}
 /* footer */
 
 footer .container {
@@ -128,9 +154,10 @@ footer .container {
   align-items: center;
   height: 75px;
   border-top: 1px solid #eaeaea;
+  background-color: #fff;
 }
 
-#post {
+#privacy, #post {
   font-size: 2.5rem;
   color: #231F20;
 }
@@ -240,6 +267,12 @@ input {
 
 #unfollow {
   border: solid 1px #DBDBDB;
+}
+
+.microposts {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* edit */

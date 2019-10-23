@@ -34,14 +34,10 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <aside class="col-md-3 col-md-offset-2">
-      <% if @user.microposts.any? %>
-        <ol class="microposts">
-          <%= render @microposts %>
-        </ol>
-        <%= will_paginate @microposts %>
-      <% end %>
-    </aside>
-  </div>
+  <% if @user.microposts.any? %>
+    <ol class="microposts">
+      <%= render @microposts %>
+    </ol>
+    <%= will_paginate @microposts %>
+  <% end %>
 </div>
