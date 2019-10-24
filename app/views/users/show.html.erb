@@ -37,6 +37,7 @@
   <% if @user.microposts.any? %>
     <ol class="microposts">
       <%= render @microposts %>
+      <%# render micropost_path %>
     </ol>
     <%= will_paginate @microposts %>
   <% end %>

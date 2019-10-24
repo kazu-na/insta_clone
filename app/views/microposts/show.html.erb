@@ -3,7 +3,7 @@
     <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
     <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
     <span class="content">
-      <%= image_tag(micropost.image.url, size: "400x400") if micropost.image? %>
+      <%= image_tag micropost.image.url if micropost.image? %>
       <%= micropost.content %>
       <div class="comment">
         <h4>コメント</h4>
@@ -11,8 +11,10 @@
           <!-- 投稿されたコメント一覧を投稿の詳細ページに表示するためのrender -->
           <%= render 'comments/index', comments: micropost.comments, micropost: micropost %>
         </div>
-        <!-- コメント入力欄を投稿の詳細ページに表示するためのrender -->
-        <%= render partial: 'comments/form', locals: { comment: @comment, micropost: @micropost } %>
+        <% if user_signed_in? %>
+          <!-- コメント入力欄を投稿の詳細ページに表示するためのrender -->
+          <%= render partial: 'comments/form', locals: { comment: @comment, micropost: @micropost } %>
+        <% end %>
       </div>
     </span>
     <span class="timestamp">
@@ -39,7 +41,17 @@
               <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
               <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
             <%= micropost.content %>
-            <%= "コメント表示" %>
+            <div class="comment">
+              <h4>コメント</h4>
+              <div class="comment_area" id="comments_area">
+                <!-- 投稿されたコメント一覧を投稿の詳細ページに表示するためのrender -->
+                <%= render 'comments/index', comments: micropost.comments, micropost: micropost %>
+              </div>
+              <% if user_signed_in? %>
+                <!-- コメント入力欄を投稿の詳細ページに表示するためのrender -->
+                <%= render partial: 'comments/form', locals: { comment: @comment, micropost: @micropost } %>
+              <% end %>
+            </div>
             </div>
             <div class="modal-footer">
               <%= "コメント入力" %>

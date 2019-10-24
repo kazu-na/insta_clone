@@ -3,7 +3,20 @@ class MicropostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def new
-    @micropost = current_user.microposts.build if logged_in?
+    if logged_in?
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.feed.page(params[:page])
+      @comment = Comment.new
+      @comments = @micropost.comments
+    else
+      redirect_to login_url
+    end
+  end
+
+  def show
+    @micropost = Micropost.find(params[:id])
+    @comment = Comment.new
+    @comments = @micropost.comments
   end
 
   def create
@@ -26,7 +39,7 @@ class MicropostsController < ApplicationController
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content, :image, :image_name)
+      params.require(:micropost).permit(:content, :image)
     end
 
     def correct_user

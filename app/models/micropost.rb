@@ -7,6 +7,7 @@ class Micropost < ApplicationRecord
   validate  :image_size
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
+  has_many :comments, dependent: :destroy
 
   private
 
