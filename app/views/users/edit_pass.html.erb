@@ -1,0 +1,24 @@
+<% provide(:title, 'Edit_pass user') %>
+<h1>パスワードを変更</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="profile-edit">
+        <h2><%= @user.username %></h2>
+      </div>
+
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "パスワード確認" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "変更する", class: "btn btn-primary" %>
+
+      <%= link_to "(パスワードを忘れた場合)", new_password_reset_path %>
+    <% end %>
+  </div>
+</div>
