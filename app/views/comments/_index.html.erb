@@ -2,7 +2,7 @@
   <% unless comment.id.nil? %>
     <div class="one_cmnt">
       <%= link_to "#{comment.user.name}", comment.user, class: "cmntname" %>
-      <span class="conten">
+      <span class="comment">
         <%= comment.content %>
       </span>
       <% if comment.user == current_user %>

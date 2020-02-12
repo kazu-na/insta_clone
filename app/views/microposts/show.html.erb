@@ -20,8 +20,7 @@
     <span class="timestamp">
       <%= time_ago_in_words(micropost.created_at) %>前
       <% if current_user?(micropost.user) %>
-        <%= link_to "削除", micropost, method: :delete,
-                                         data: { confirm: "本当に削除しますか？" } %>
+        <%= link_to "削除", micropost, method: :delete, data: { confirm: "本当に削除しますか？" } %>
       <% end %>
     </span>
   </li>
@@ -34,28 +33,28 @@
           <div class="modal-content">
             <%= image_tag(micropost.image.url, size: "400x400") %>
             <div class="modal-header">
-            <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
-            <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+              <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
+              <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
             </div>
             <div class="modal-body">
               <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
               <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-            <%= micropost.content %>
-            <div class="comment">
-              <h4>コメント</h4>
-              <div class="comment_area" id="comments_area">
-                <!-- 投稿されたコメント一覧を投稿の詳細ページに表示するためのrender -->
-                <%= render 'comments/index', comments: micropost.comments, micropost: micropost %>
+              <%= micropost.content %>
+              <div class="comment">
+                <h4>コメント</h4>
+                <div class="comment_area" id="comments_area">
+                  <!-- 投稿されたコメント一覧を投稿の詳細ページに表示するためのrender -->
+                  <%= render 'comments/index', comments: micropost.comments, micropost: micropost %>
+                </div>
+                <% if user_signed_in? %>
+                  <!-- コメント入力欄を投稿の詳細ページに表示するためのrender -->
+                  <%= render partial: 'comments/form', locals: { comment: @comment, micropost: @micropost } %>
+                <% end %>
               </div>
-              <% if user_signed_in? %>
-                <!-- コメント入力欄を投稿の詳細ページに表示するためのrender -->
-                <%= render partial: 'comments/form', locals: { comment: @comment, micropost: @micropost } %>
-              <% end %>
-            </div>
             </div>
             <div class="modal-footer">
               <%= "コメント入力" %>
-              </div>
+            </div>
           </div>
         </div>
       </div>
