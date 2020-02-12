@@ -1,6 +1,6 @@
 <% if current_page?(root_path) %>
   <li id="micropost-<%= micropost.id %>">
-    <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
+    <%= link_to image_tag(micropost.user.image_name.url, size: "40x40"), micropost.user %>
     <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
     <span class="content">
       <%= image_tag(micropost.image.url, size: "620x620") if micropost.image? %>
@@ -28,13 +28,13 @@
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <%= image_tag(micropost.image.url, size: "300x300") %>
+            <%= image_tag(micropost.image.url, size: "620x620") %>
             <div class="modal-header">
-            <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
-            <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+              <%= link_to image_tag(micropost.user.image_name.url, size: "40x40"), micropost.user %>
+              <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
             </div>
             <div class="modal-body">
-              <%= link_to image_tag(micropost.image_name.url, size: "30x30"), micropost.user %>
+              <%= link_to image_tag(micropost.user.image_name.url, size: "40x40"), micropost.user %>
               <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
               <%= micropost.content %>
               <%= "コメント表示" %>

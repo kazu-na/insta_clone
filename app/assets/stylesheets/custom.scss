@@ -238,6 +238,9 @@ input {
     margin-top: 0;
     margin-bottom: 0;
   }
+  .profile_line #addApp {
+    text-align: center;
+  }
   .profile_line p {
     font-size: 3.8rem;
   }
@@ -295,6 +298,13 @@ input {
   }
 }
 
+.modal-content {
+  display: flex;
+  .modal-header a, p {
+    display: inline;
+  }
+}
+
 #unfollow {
   border: solid 1px #DBDBDB;
 }
@@ -319,7 +329,7 @@ input {
 
 .users {
   list-style: none;
-  margin: 0;
+  margin-bottom: 75px;
   li {
     overflow: auto;
     padding: 10px 0;
